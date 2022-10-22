@@ -2,7 +2,7 @@
 
 Download courses from <https://www.alomoves.com> automatically.
 
-A quick update to gatekeepr's code to make it work for me
+A quick update to gatekeepr's code to make it work for me. 
 Gets the individual class links, HAR file, then video link, then downloads video and txt of class description.
 
 Not much error catching. Just watch the screen occasionally and re-run if any issues grabbing the video.m3u8 from the class site. If the page isn't fully loaded, you will end up getting the preview intro video or nothing at all (code will crash if no video.m3u8 in the HAR file).
