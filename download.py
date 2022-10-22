@@ -6,8 +6,8 @@ import pprint
 from getclasslinks import getclasslinks
 import os
 
-email = 'ktyntang@hotmail.com'
-password = '4Ur3wHGY6wtPw!3'
+email = ''
+password = ''
 
 pp = pprint.PrettyPrinter(indent=4)
                 
