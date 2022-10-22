@@ -1,8 +1,8 @@
 # Aloscraper 2022
 
-Download courses from <https://www.alomoves.com> automatically.
+Download courses from Alo Moves automatically.
 
-A quick update to gatekeepr's code to make it work for me
+A quick and dirty update to gatekeepr's code.
 Gets the individual class links, HAR file, then video link, then downloads video and txt of class description.
 
 Not much error catching. Just watch the screen occasionally and re-run if any issues grabbing the video.m3u8 from the class site. If the page isn't fully loaded, you will end up getting the preview intro video or nothing at all (code will crash if no video.m3u8 in the HAR file).
@@ -12,7 +12,7 @@ Not much error catching. Just watch the screen occasionally and re-run if any is
 1. `pip3 install -r requirements.txt`
 2. Navigate to Lib\site-packages\haralyzer\assets.py
 At line 367, add an "else:" so the script looks like this...
-
+```
 else:
    for page in raw_data["pages"]:
          if page["id"] == self.page_id:
@@ -20,6 +20,7 @@ else:
             self.title = page.get("title", "")
             self.startedDateTime = page["startedDateTime"]
             self.pageTimings = page["pageTimings"]
+```
 
 2. Download Chrome Webdriver according to your Version (probably 80) [HERE](https://chromedriver.chromium.org/downloads) and place into your working folder next to the .py (or add it to your PATH)
 3. Make sure you have a valid alomoves account on hand (Trial accounts are fine).
@@ -32,8 +33,10 @@ else:
 
 - UNIQUE: list of unique class index. default assumption is that all vids in all series are unique.
 
-e.g. 30 day workout series only has 6 unique videos (how to vid + day 1-5 vids) then this set repeats the rest of the month. Only other special exception is day 15 (intro to new skill) and day 30 (final test?).
+e.g. 30 day workout series only has 6 unique videos (how to vid + day 1-5 vids) then this set repeats the rest of the month. Only other special exception is day 15 (intro to new skill) and day 30 (final test).
+```
    UNIQUE = [0,1,2,3,4,5,15,30]
+```
 Selective downloading using UNIQUE will be applied to all series in the downloadlinks.txt so use sparingly.
 
 
