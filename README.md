@@ -1,6 +1,6 @@
 # Aloscraper 2022
 
-Download courses from <https://www.alomoves.com> automatically.
+Download courses from Alo Moves automatically.
 
 A quick update to gatekeepr's code to make it work for me. 
 Gets the individual class links, HAR file, then video link, then downloads video and txt of class description.
