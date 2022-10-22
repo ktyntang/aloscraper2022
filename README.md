@@ -33,8 +33,10 @@ else:
 
 - UNIQUE: list of unique class index. default assumption is that all vids in all series are unique.
 
-e.g. 30 day workout series only has 6 unique videos (how to vid + day 1-5 vids) then this set repeats the rest of the month. Only other special exception is day 15 (intro to new skill) and day 30 (final test?).
+e.g. 30 day workout series only has 6 unique videos (how to vid + day 1-5 vids) then this set repeats the rest of the month. Only other special exception is day 15 (intro to new skill) and day 30 (final test).
+```
    UNIQUE = [0,1,2,3,4,5,15,30]
+```
 Selective downloading using UNIQUE will be applied to all series in the downloadlinks.txt so use sparingly.
 
 
