@@ -6,15 +6,18 @@ import pprint
 from getclasslinks import getclasslinks
 import os
 
-email = 'ktyntang@hotmail.com'
-password = '4Ur3wHGY6wtPw!3'
+email = ''
+password = ''
 
 pp = pprint.PrettyPrinter(indent=4)
                 
 def make_series_folder(series):
     linkset = series[0]
-    firstlink = linkset[0] if len(linkset) == 2 else firstlink = linkset
-    folder_name = firstlink.split("series")[1].split("workouts")[0].replace("/","")
+    if len(linkset) == 2:
+        firstlink = linkset[0] 
+    else:
+        firstlink = linkset
+    folder_name = firstlink.split("/series")[1].split("workouts")[0].replace("/","")
     path = os.path.join(os.getcwd(), folder_name)
     os.mkdir(path)
     return path
@@ -50,9 +53,12 @@ def download_txt_mp4(list_of_linkset, path):
 
 def main():
     serieslist = getclasslinks(email, password)
+
+    serieslist = []
+
     for no,series in enumerate(serieslist):
         folder_path = make_series_folder(series)
-        UNIQUE = range(len(links)) 
+        UNIQUE = range(len(series)) 
         # change to list of class indices if there are repeats.
         newlinks = []
         for i, link in enumerate(series):
@@ -70,9 +76,8 @@ def main():
 
         pp.pprint(newlinks)
         print(f"VIDEO LINKS GENERATED FOR {no+1}/{len(serieslist)+1} SERIES. DOWNLOADING {len(newlinks)} VIDEOS NOW....")
-
         download_txt_mp4(newlinks, folder_path)
 
-    
 if __name__ == '__main__':
     main()
+
